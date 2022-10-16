@@ -51,13 +51,19 @@
     align-items: flex-end;
     z-index: -1;
 
-    img {
+    .img {
       height: calc(100% - 20%);
       width: calc(100vw - 63%);
       margin: 0 auto;
-      object-fit: cover;
       border-top-left-radius: 1400px;
       border-top-right-radius: 1400px;
+      overflow: hidden;
+
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
 
       @media only screen and (max-width: $layout-breakpoint-small) {
         width: calc(100vw - 40%);

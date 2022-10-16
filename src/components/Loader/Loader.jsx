@@ -2,37 +2,42 @@ import gsap from 'gsap';
 import React, { useEffect } from 'react';
 import classes from './Loader.module.scss';
 
-const Loader = () => {
-  useEffect(() => {
-    const tl = gsap.timeline();
+const loadingAnimation = (setLoadingComplete) => {
+  const tl = gsap.timeline();
 
-    tl.to(`.${classes.loader} .${classes.numbers}`, {
-      y: '-1300%',
-      duration: 8,
-      ease: 'expo.inOut',
-    })
-      .to(
-        `.${classes.content}`,
-        {
-          scale: 2.5,
-          duration: 8,
-          ease: 'expo.inOut',
-        },
-        '-=8'
-      )
-      .fromTo(
-        `.${classes.loader}`,
-        {
-          clipPath: 'polygon(0 0,100% 0,100% 100%,0 100%)',
-        },
-        {
-          clipPath: 'polygon(100% 0,100% 0,100% 100%,100% 100%)',
-          duration: 3,
-          ease: 'power4.out',
-        },
-        '-=3'
-      );
-  }, []);
+  tl.to(`.${classes.loader} .${classes.numbers}`, {
+    y: '-1300%',
+    duration: 6,
+    ease: 'expo.inOut',
+  })
+    .to(
+      `.${classes.content}`,
+      {
+        scale: 2.5,
+        duration: 4,
+        ease: 'expo.inOut',
+      },
+      '-=5'
+    )
+    .fromTo(
+      `.${classes.loader}`,
+      {
+        clipPath: 'polygon(0 0,100% 0,100% 100%,0 100%)',
+      },
+      {
+        clipPath: 'polygon(100% 0,100% 0,100% 100%,100% 100%)',
+        duration: 1.2,
+        ease: 'expo.inOut',
+        onComplete: setLoadingComplete,
+      },
+      '-=2'
+    );
+};
+
+const Loader = ({ setLoadingComplete }) => {
+  useEffect(() => {
+    loadingAnimation(setLoadingComplete);
+  }, [setLoadingComplete]);
 
   return (
     <div className={classes.loader}>
