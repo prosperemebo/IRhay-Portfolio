@@ -78,12 +78,7 @@ const Header = ({ shouldAnimate, timeline }) => {
         </div>
       </div>
       <div className={classes.textbox}>
-        <div
-          id='textbox'
-          data-scroll
-          data-scroll-speed='3'
-          data-scroll-position='top'
-        >
+        <div id='textbox'>
           <h1 className='heading-primary'>IRhay</h1>
           <p className='paragraph'>
             IRhay left her family home in Ibadan for Lagos after getting an

@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import Header from './components/Header';
 import About from './components/About';
 import Loader from './components/Loader';
+import Experience from './components/Experience';
 import './sass/main.scss';
 import gsap from 'gsap';
 import useLocoScroll from './hooks/useLocoScroll';
@@ -43,10 +44,10 @@ function App() {
       });
   }, []);
 
-  useLocoScroll(scrollRef);
+  // useLocoScroll(scrollRef);
 
   return (
-    <div ref={scrollRef}>
+    <>
       {isLoadingComplete ? (
         ''
       ) : (
@@ -54,7 +55,8 @@ function App() {
       )}
       <Header shouldAnimate={isLoadingComplete} timeline={timeline} />
       <About />
-    </div>
+      <Experience />
+    </>
   );
 }
 
