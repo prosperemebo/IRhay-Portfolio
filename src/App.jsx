@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
-import Header from './components/Header/Header';
-import Loader from './components/Loader/Loader';
+import Header from './components/Header';
+import About from './components/About';
+import Loader from './components/Loader';
 import './sass/main.scss';
 import gsap from 'gsap';
 
 function App() {
-  const [isLoadingComplete, setIsLoadingComplete] = useState(false);
+  const [isLoadingComplete, setIsLoadingComplete] = useState(true);
 
   const setLoadingCompleteHandler = () => {
     console.log('Hello');
@@ -19,7 +20,7 @@ function App() {
     // Prevent Flashing
     gsap.to('body', {
       duration: 0,
-      css: { visibility: 'visible', backgroundColor: '#fff' },
+      css: { visibility: 'visible' },
     });
 
     // Presets
@@ -45,6 +46,7 @@ function App() {
         <Loader setLoadingComplete={setLoadingCompleteHandler} />
       )}
       <Header shouldAnimate={isLoadingComplete} />
+      <About />
     </>
   );
 }

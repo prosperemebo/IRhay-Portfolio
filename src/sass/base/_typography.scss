@@ -26,10 +26,26 @@ html {
   }
 }
 
+.heading-secondary {
+  font-size: 5rem;
+  color: $white;
+  font-weight: 600;
+  margin-bottom: 2.5rem;
+  line-height: 1.5em;
+
+  @include media('<=desktop') {
+    font-size: 4rem;
+  }
+
+  @include media('<=tablet') {
+    font-size: 3.5rem;
+  }
+}
+
 .paragraph {
   font-weight: 200;
-  font-size: 1.8rem;
-  line-height: 150%;
+  font-size: 2rem;
+  line-height: 2em;
 
   @media only screen and (max-width: $layout-breakpoint-phone) {
     font-size: 1.5rem;

@@ -32,7 +32,7 @@ const headerAnimation = () => {
     .to(
       `.${classes.musicLink}`,
       {
-        scale: 0.7,
+        scale: 1,
         duration: 1,
         ease: 'power4.out',
       },
