@@ -8,11 +8,10 @@ import hero from '../../assets/images/hero.jpg';
 import hero1 from '../../assets/images/hero-1.png';
 import hero2 from '../../assets/images/hero-3.png';
 import compositionImage from '../../assets/images/comp-1.jpg';
-import gsap from 'gsap';
+import gsap from 'gsap/gsap-core';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 
-const headerAnimation = () => {
-  const tl = gsap.timeline();
-
+const headerAnimation = (tl) => {
   tl.to(`.${classes.compositionImg} img`, {
     scale: 1,
     opacity: 1,
@@ -40,17 +39,38 @@ const headerAnimation = () => {
     );
 };
 
-const Header = ({ shouldAnimate }) => {
+const backgroundParallaxAnimation = () => {
+  const tl = gsap.timeline();
+  gsap.registerPlugin(ScrollTrigger);
+
+  tl.to('#rock-1', { y: -300, duration: 3 }).to(
+    '#rock-2',
+    { y: -200, duration: 3 },
+    '-=3'
+  );
+
+  const trigger = ScrollTrigger.create({
+    animation: tl,
+    trigger: `header`,
+    start: 'top top',
+    end: 'bottom center',
+    invalidateOnRefresh: true,
+    scrub: 1,
+  });
+};
+
+const Header = ({ shouldAnimate, timeline }) => {
   useEffect(() => {
-    shouldAnimate && headerAnimation();
-  }, [shouldAnimate]);
+    shouldAnimate && headerAnimation(timeline);
+    shouldAnimate && backgroundParallaxAnimation();
+  }, [shouldAnimate, timeline]);
 
   return (
     <header className={classes.header}>
       <div className={classes.background}>
-        <img src={hero} alt='' />
-        <img src={hero1} alt='' />
-        <img src={hero2} alt='' />
+        <img id='rock' src={hero} alt='' />
+        <img id='rock-2' src={hero2} alt='' />
+        <img id='rock-1' src={hero1} alt='' />
       </div>
       <div className={classes.compositionImg} id='compositionImg'>
         <div className={classes.img}>
@@ -58,7 +78,12 @@ const Header = ({ shouldAnimate }) => {
         </div>
       </div>
       <div className={classes.textbox}>
-        <div id='textbox'>
+        <div
+          id='textbox'
+          data-scroll
+          data-scroll-speed='3'
+          data-scroll-position='top'
+        >
           <h1 className='heading-primary'>IRhay</h1>
           <p className='paragraph'>
             IRhay left her family home in Ibadan for Lagos after getting an

@@ -1,15 +1,18 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Header from './components/Header';
 import About from './components/About';
 import Loader from './components/Loader';
 import './sass/main.scss';
 import gsap from 'gsap';
+import useLocoScroll from './hooks/useLocoScroll';
 
 function App() {
-  const [isLoadingComplete, setIsLoadingComplete] = useState(true);
+  const [isLoadingComplete, setIsLoadingComplete] = useState(false);
+  const [timeline, setTimeline] = useState(null);
+
+  const scrollRef = useRef();
 
   const setLoadingCompleteHandler = () => {
-    console.log('Hello');
     setIsLoadingComplete(true);
   };
 
@@ -25,6 +28,8 @@ function App() {
 
     // Presets
     const tl = gsap.timeline();
+    setTimeline(tl);
+
     tl.set(`#compositionImg img`, {
       scale: 1.3,
       opacity: 0,
@@ -38,16 +43,18 @@ function App() {
       });
   }, []);
 
+  useLocoScroll(scrollRef);
+
   return (
-    <>
+    <div ref={scrollRef}>
       {isLoadingComplete ? (
         ''
       ) : (
         <Loader setLoadingComplete={setLoadingCompleteHandler} />
       )}
-      <Header shouldAnimate={isLoadingComplete} />
+      <Header shouldAnimate={isLoadingComplete} timeline={timeline} />
       <About />
-    </>
+    </div>
   );
 }
 
