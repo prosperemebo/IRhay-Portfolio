@@ -81,8 +81,9 @@ const Header = ({ shouldAnimate, timeline }) => {
         <div id='textbox'>
           <h1 className='heading-primary'>IRhay</h1>
           <p className='paragraph'>
-            IRhay left her family home in Ibadan for Lagos after getting an
-            offer to become a writer at a newly formed media company, Zikoko.
+            With IRhay, every mood has a fitting song. His creative juice allows
+            him to draw from these human emotions to give life to befitting
+            music to accompany one’s mood.
           </p>
         </div>
       </div>

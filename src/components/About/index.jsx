@@ -12,16 +12,15 @@ const About = () => {
         </div>
         <div className={classes.info}>
           <h2 className='heading-secondary'>
-            A lifestyle music artist with strong integration with the community.
+            His sound speaks originality and paints a visual reality of emotions
+            in storytelling relatable to all people.
           </h2>
           <p className='paragraph'>
-            IRhay left her family home in Ibadan for Lagos after getting an
-            offer to become a writer at a newly formed media company, Zikoko.
-            Work was going well, until she got bored and literally said “fuck
-            shit, I want to make videos”. She is mostly self taught, it
-            definitely didn’t hurt to have unlimited access to the internet. She
-            had a little more creative freedom when she finally left for her own
-            apartment after living with relatives for a year.
+            Having lived through his life experiences, every song is personal to
+            IRhay each having a tale behind its cursory meaning. IRhay the “Afro
+            Chameleon” believes his creative and unique style of music is yet to
+            be deeply defined but sets around the increasingly diverse
+            sub-genres of Afrobeats.
           </p>
         </div>
       </div>
