@@ -12,13 +12,15 @@ function App() {
   const [timeline, setTimeline] = useState(null);
   const [ready, progress] = useReadyImages();
 
-  console.log(progress, ready);
-
   const setLoadingCompleteHandler = () => {
     setIsLoadingComplete(true);
   };
 
   useEffect(() => {
+    document.addEventListener('DOMContentLoaded', (e) => {
+      console.log('DOM completely loaded!', e);
+    });
+
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
 
@@ -43,6 +45,10 @@ function App() {
       .set('#musiclink', {
         scale: 0,
       });
+
+    return () => {
+      document.removeEventListener('DOMContentLoaded', () => {});
+    };
   }, []);
 
   // useLocoScroll(scrollRef);
@@ -52,7 +58,10 @@ function App() {
       {isLoadingComplete ? (
         ''
       ) : (
-        <Loader setLoadingComplete={setLoadingCompleteHandler} />
+        <Loader
+          setLoadingComplete={setLoadingCompleteHandler}
+          progress={progress}
+        />
       )}
       <Header shouldAnimate={isLoadingComplete} timeline={timeline} />
       <About />

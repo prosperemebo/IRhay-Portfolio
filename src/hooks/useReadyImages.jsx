@@ -19,7 +19,7 @@ export default function useReadyImages() {
         .map((img, i) => {
           return new Promise((resolve) => {
             img.onload = img.onerror = resolve;
-
+          }).then((res) => {
             setProgress((prev) => {
               return {
                 ...prev,

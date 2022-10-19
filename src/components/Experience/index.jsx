@@ -3,7 +3,6 @@ import classes from './Experience.module.scss';
 
 import compositionImg from '../../assets/images/comp-3.jpg';
 import banner1 from '../../assets/images/banner-1.jpg';
-import banner2 from '../../assets/images/banner-2.jpg';
 import banner3 from '../../assets/images/banner-3.jpg';
 import banner4 from '../../assets/images/banner-4.jpg';
 

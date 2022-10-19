@@ -2,7 +2,7 @@ import gsap from 'gsap';
 import React, { useEffect } from 'react';
 import classes from './Loader.module.scss';
 
-const loadingAnimation = (setLoadingComplete) => {
+const loadingAnimation = (setLoadingComplete, progress) => {
   const tl = gsap.timeline();
 
   tl.to(`.${classes.loader} .${classes.numbers}`, {
@@ -10,15 +10,15 @@ const loadingAnimation = (setLoadingComplete) => {
     duration: 6,
     ease: 'expo.inOut',
   })
-    .to(
-      `.${classes.content}`,
-      {
-        scale: 2.5,
-        duration: 4,
-        ease: 'expo.inOut',
-      },
-      '-=5'
-    )
+    // .to(
+    //   `.${classes.content}`,
+    //   {
+    //     scale: 2.5,
+    //     duration: 4,
+    //     ease: 'expo.inOut',
+    //   },
+    //   '-=5'
+    // )
     .fromTo(
       `.${classes.loader}`,
       {
@@ -32,12 +32,25 @@ const loadingAnimation = (setLoadingComplete) => {
       },
       '-=2'
     );
+
+  if (progress) {
+    if (progress.distance > 0 && progress.distance === progress.value) {
+      console.log('hello', progress);
+      // tl.play();
+    } else {
+      let playback = progress.value / progress.distance;
+
+      console.log(playback);
+
+      tl.progress(playback).pause();
+    }
+  }
 };
 
-const Loader = ({ setLoadingComplete }) => {
+const Loader = ({ setLoadingComplete, progress }) => {
   useEffect(() => {
-    loadingAnimation(setLoadingComplete);
-  }, [setLoadingComplete]);
+    loadingAnimation(setLoadingComplete, progress);
+  }, [progress, setLoadingComplete]);
 
   return (
     <div className={classes.loader}>
