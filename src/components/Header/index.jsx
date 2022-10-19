@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import classes from './Header.module.scss';
 
-import { ReactComponent as EOMText } from '../../assets/images/circular-text.svg';
-import { ReactComponent as UpArrow } from '../../assets/images/arrow.svg';
+import { ReactComponent as EOMText } from '../../assets/icons/circular-text.svg';
+import { ReactComponent as UpArrow } from '../../assets/icons/arrow.svg';
 import EOMCover from '../../assets/images/music-cover.jpg';
 import hero from '../../assets/images/hero.jpg';
 import hero1 from '../../assets/images/hero-1.png';

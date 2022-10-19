@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Header from './components/Header';
 import About from './components/About';
 import Loader from './components/Loader';
+import Hallway from './components/Hallway';
 import Experience from './components/Experience';
 import './sass/main.scss';
 import gsap from 'gsap';
@@ -66,6 +67,7 @@ function App() {
       <Header shouldAnimate={isLoadingComplete} timeline={timeline} />
       <About />
       <Experience />
+      <Hallway />
     </>
   );
 }

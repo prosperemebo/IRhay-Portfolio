@@ -1,0 +1,158 @@
+@import '../../sass/abstracts/breakpoints';
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include media('<=tablet') {
+    height: auto;
+  }
+
+  .wrapper {
+    padding: 5rem 10rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    overflow: scroll;
+
+    @include media('<=tablet') {
+      flex-direction: column;
+      padding: 3rem;
+      align-items: center;
+    }
+
+    @include media('<=phone') {
+      padding: 2rem;
+    }
+  }
+
+  .info {
+    text-align: center;
+    margin-right: 10rem;
+
+    @include media('<=tablet') {
+      margin-right: 0;
+      margin-bottom: 5rem;
+    }
+
+    figure {
+      height: 50rem;
+      width: 50rem;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 2rem;
+
+      @include media('<=tablet') {
+        height: 35rem;
+        width: 35rem;
+        margin: 0 auto 2rem;
+      }
+
+      @include media('<=phone') {
+        height: 25rem;
+        width: 25rem;
+      }
+
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    p {
+      font-size: 1.6rem;
+      line-height: 2em;
+      padding: 0 1rem;
+    }
+
+    .socials {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 3rem;
+
+      li {
+        &:not(:last-child) {
+          margin-right: 2.5rem;
+        }
+      }
+    }
+  }
+
+  .hallway {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    max-height: 80rem;
+
+    @include media('<=tablet') {
+      flex-direction: column;
+      width: 100%;
+      max-height: unset;
+    }
+
+    figure {
+      overflow: hidden;
+      width: 70rem;
+
+      &:not(:last-child) {
+        margin-right: 3rem;
+      }
+      @include media('<=tablet') {
+        width: 100%;
+
+        &:not(:last-child) {
+          margin-right: 0;
+          margin-bottom: 3rem;
+        }
+      }
+
+      @include media('<=phone') {
+        &:not(:last-child) {
+          margin-bottom: 2rem;
+        }
+      }
+
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+
+      &.sm {
+        width: 40rem;
+      }
+
+      &.md {
+        width: 45rem;
+      }
+
+      &.lg {
+        width: 60rem;
+      }
+
+      @include media('<=tablet') {
+        &.sm {
+          height: 40rem;
+          width: 100%;
+        }
+
+        &.md {
+          height: 45rem;
+          width: 100%;
+        }
+
+        &.lg {
+          height: 60rem;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
