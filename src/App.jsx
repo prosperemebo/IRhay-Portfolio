@@ -1,17 +1,18 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Header from './components/Header';
 import About from './components/About';
 import Loader from './components/Loader';
 import Experience from './components/Experience';
 import './sass/main.scss';
 import gsap from 'gsap';
-import useLocoScroll from './hooks/useLocoScroll';
+import useReadyImages from './hooks/useReadyImages';
 
 function App() {
   const [isLoadingComplete, setIsLoadingComplete] = useState(false);
   const [timeline, setTimeline] = useState(null);
+  const [ready, progress] = useReadyImages();
 
-  const scrollRef = useRef();
+  console.log(progress, ready);
 
   const setLoadingCompleteHandler = () => {
     setIsLoadingComplete(true);
