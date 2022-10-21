@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import classes from './Hallway.module.scss';
 
-import portrait from '../../assets/images/pic-0.jpg';
+import portrait from '../../assets/images/pic-14.jpg';
 
 import img1 from '../../assets/images/pic-12.jpg';
 import img2 from '../../assets/images/pic-11.jpg';

@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './About.module.scss';
 
-import compositionImg from '../../assets/images/comp-2.jpg';
+import compositionImg from '../../assets/images/comp-4.jpg';
 
 const About = () => {
   return (
