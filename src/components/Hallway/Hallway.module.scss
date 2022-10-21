@@ -2,11 +2,22 @@
 
 .container {
   width: 100vw;
-  height: 100vh;
-  overflow: hidden;
+  height: 90vh;
+  // overflow: hidden;
   display: flex;
-  justify-content: center;
+  // justify-content: center;
   align-items: center;
+  overflow-x: scroll;
+  // height: 100%;
+  // position: relative;
+  // display: flex;
+  // align-items: center;
+  // overflow-y: hidden;
+  // width: auto !important;
+  // max-width: none !important;
+  // left: 0;
+  // top: 0;
+  transform: none !important;
 
   @include media('<=tablet') {
     height: auto;
@@ -17,8 +28,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    overflow: scroll;
+    // width: 100%;
+    padding-right: 10rem;
+    // overflow: scroll;
 
     @include media('<=tablet') {
       flex-direction: column;

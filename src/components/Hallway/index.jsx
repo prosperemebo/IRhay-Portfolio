@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import classes from './Hallway.module.scss';
 
 import portrait from '../../assets/images/pic-0.jpg';
 
 import img1 from '../../assets/images/pic-12.jpg';
-import img2 from '../../assets/images/pic-3.jpg';
+import img2 from '../../assets/images/pic-11.jpg';
 import img3 from '../../assets/images/pic-7.jpg';
-import img4 from '../../assets/images/pic-4.jpg';
+import img4 from '../../assets/images/pic-8.jpg';
 import img5 from '../../assets/images/pic-9.jpg';
 import img6 from '../../assets/images/pic-1.jpg';
 import img7 from '../../assets/images/pic-5.jpg';
@@ -16,10 +16,46 @@ import { ReactComponent as FacebookIcon } from '../../assets/icons/facebook.svg'
 import { ReactComponent as TwitterIcon } from '../../assets/icons/twitter.svg';
 import { ReactComponent as TiktokIcon } from '../../assets/icons/tiktok.svg';
 import { ReactComponent as InstagramIcon } from '../../assets/icons/instagram.svg';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 
-const index = () => {
+gsap.registerPlugin(ScrollTrigger);
+
+const animation = (scrollWidth) => {
+  const tl = gsap.timeline();
+
+  tl.to(`.${classes.wrapper}`, {
+    x: `-${scrollWidth}px`,
+    // xPercent: -100,
+    y: 0,
+    ease: 'none',
+  });
+
+  const trigger = ScrollTrigger.create({
+    animation: tl,
+    trigger: `.${classes.container}`,
+    start: 'top top',
+    end: '+=' + scrollWidth,
+    invalidateOnRefresh: true,
+    markers: true,
+    scrub: true,
+    pin: `.${classes.wrapper}`,
+  });
+};
+
+const Hallway = () => {
+  const wrapperRef = useRef();
+
+  useEffect(() => {
+    const scrollWidth = wrapperRef.current.scrollWidth;
+
+    setTimeout(() => {
+      // animation(scrollWidth);
+    }, 6000);
+  }, []);
+
   return (
-    <section className={classes.container}>
+    <section className={classes.container} ref={wrapperRef}>
       <div className={classes.wrapper}>
         <div className={classes.info}>
           <div className={classes.main}>
@@ -86,4 +122,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Hallway;

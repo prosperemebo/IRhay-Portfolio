@@ -7,6 +7,7 @@ import Experience from './components/Experience';
 import './sass/main.scss';
 import gsap from 'gsap';
 import useReadyImages from './hooks/useReadyImages';
+import Footer from './components/Footer';
 
 function App() {
   const [isLoadingComplete, setIsLoadingComplete] = useState(false);
@@ -68,6 +69,7 @@ function App() {
       <About />
       <Experience />
       <Hallway />
+      <Footer />
     </>
   );
 }
