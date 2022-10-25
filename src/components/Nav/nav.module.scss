@@ -1,0 +1,89 @@
+@import '../../sass/abstracts/breakpoints';
+@import '../../sass/abstracts/variables';
+
+.nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 5rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 20;
+
+  @include media('<=desktop') {
+    padding: 2rem;
+  }
+
+  @include media('<=tablet') {
+    padding: 1.5rem;
+  }
+
+  @include media('<=phone') {
+    padding: 1rem 0.5rem;
+  }
+
+  audio {
+    display: none;
+  }
+
+  .cta {
+    display: flex;
+    align-items: center;
+
+    button {
+      &:not(:last-child) {
+        margin-right: 3rem;
+
+        @include media('<=tablet') {
+          margin-right: 1.5rem;
+        }
+
+        @include media('<=phone') {
+          margin-right: 0rem;
+        }
+      }
+    }
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    color: $white;
+    padding: 1rem;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+
+    &:hover,
+    &:active {
+      transform: scale(1.1);
+    }
+
+    svg {
+      width: 3rem;
+      margin-right: 1rem;
+
+      @include media('<=tablet') {
+        width: 2rem;
+        margin-right: 0.8rem;
+      }
+
+      path {
+        fill: $white;
+      }
+    }
+
+    span {
+      font-weight: 700;
+      font-family: inherit;
+      font-size: 2rem;
+
+      @include media('<=tablet') {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}

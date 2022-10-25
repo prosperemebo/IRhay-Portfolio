@@ -8,6 +8,7 @@ import './sass/main.scss';
 import gsap from 'gsap';
 import useReadyImages from './hooks/useReadyImages';
 import Footer from './components/Footer';
+import Nav from './components/Nav';
 
 function App() {
   const [isLoadingComplete, setIsLoadingComplete] = useState(false);
@@ -65,6 +66,7 @@ function App() {
           progress={progress}
         />
       )}
+      <Nav />
       <Header shouldAnimate={isLoadingComplete} timeline={timeline} />
       <About />
       <Experience />

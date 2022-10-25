@@ -3,7 +3,6 @@
 .header {
   min-height: 100vh;
   position: relative;
-  //   overflow: scroll;
 
   @media only screen and (max-height: $layout-breakpoint-phone) {
     min-height: 150vh;
@@ -34,7 +33,7 @@
 
     @media only screen and (max-width: $layout-breakpoint-small) {
       bottom: unset;
-      top: 30%;
+      top: 35%;
       left: 50%;
       transform: translate(-50%, -50%);
       text-align: center;
