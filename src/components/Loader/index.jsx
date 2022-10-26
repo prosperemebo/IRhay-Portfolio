@@ -1,5 +1,6 @@
 import gsap from 'gsap';
-import React, { useCallback, useEffect, useRef } from 'react';
+import React, { useCallback, useContext, useEffect, useRef } from 'react';
+import AppContext from '../../store/app-context';
 import classes from './Loader.module.scss';
 
 const closingAnimation = (setLoadingComplete) => {
@@ -14,21 +15,22 @@ const closingAnimation = (setLoadingComplete) => {
       clipPath: 'polygon(100% 0,100% 0,100% 100%,100% 100%)',
       duration: 1.2,
       ease: 'expo.inOut',
-      onComplete: setLoadingComplete,
+      onComplete: () => setLoadingComplete(true),
     }
   );
 };
 
-const Loader = ({ setLoadingComplete, progress = 0 }) => {
+const Loader = ({ progress = 0 }) => {
+  const appCtx = useContext(AppContext);
   const refCounter = useRef();
   const refContent = useRef();
 
   const loaderEnd = useCallback(() => {
     if (progress === 100) {
-      closingAnimation(setLoadingComplete);
+      closingAnimation(appCtx.setIsLoadingComplete);
       setTimeout(() => {}, 1000);
     }
-  }, [progress, setLoadingComplete]);
+  }, [appCtx.setIsLoadingComplete, progress]);
 
   useEffect(() => {
     let transform = (progress / 100) * -1300;
@@ -46,7 +48,7 @@ const Loader = ({ setLoadingComplete, progress = 0 }) => {
     refContent.current.style.setProperty('transform', `scale(${scale})`);
 
     refCounter.current.addEventListener('transitionend', loaderEnd, false);
-  }, [loaderEnd, progress, setLoadingComplete]);
+  }, [loaderEnd, progress]);
 
   return (
     <div className={classes.loader}>

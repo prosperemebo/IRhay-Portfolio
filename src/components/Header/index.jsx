@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import classes from './Header.module.scss';
 
 import { ReactComponent as EOMText } from '../../assets/icons/circular-text.svg';
@@ -10,8 +10,23 @@ import hero2 from '../../assets/images/hero-3.png';
 import compositionImage from '../../assets/images/comp-1.jpg';
 import gsap from 'gsap/gsap-core';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import AppContext from '../../store/app-context';
 
-const headerAnimation = (tl) => {
+const headerAnimation = () => {
+  const tl = gsap.timeline();
+
+  // .set(`#compositionImg img`, {
+  //   scale: 1.3,
+  //   opacity: 0,
+  // })
+  //   .set('#textbox', {
+  //     y: 150,
+  //     opacity: 0,
+  //   })
+  //   .set('#musiclink', {
+  //     scale: 0,
+  //   })
+
   tl.to(`.${classes.compositionImg} img`, {
     scale: 1,
     opacity: 1,
@@ -19,11 +34,11 @@ const headerAnimation = (tl) => {
     ease: 'power4.easeout',
   })
     .to(
-      `#textbox`,
+      `.${classes.textbox}`,
       {
         y: 0,
         opacity: 1,
-        duration: 1,
+        duration: 1.6,
         ease: 'power4.out',
       },
       '-=1.3'
@@ -59,11 +74,13 @@ const backgroundParallaxAnimation = () => {
   });
 };
 
-const Header = ({ shouldAnimate, timeline }) => {
+const Header = () => {
+  const appCtx = useContext(AppContext);
+
   useEffect(() => {
-    shouldAnimate && headerAnimation(timeline);
-    shouldAnimate && backgroundParallaxAnimation();
-  }, [shouldAnimate, timeline]);
+    appCtx.isLoadingComplete && headerAnimation();
+    appCtx.isLoadingComplete && backgroundParallaxAnimation();
+  }, [appCtx.isLoadingComplete]);
 
   return (
     <header className={classes.header}>
@@ -78,14 +95,12 @@ const Header = ({ shouldAnimate, timeline }) => {
         </div>
       </div>
       <div className={classes.textbox}>
-        <div id='textbox'>
-          <h1 className='heading-primary'>IRhay</h1>
-          <p className='paragraph'>
-            With IRhay, every mood has a fitting song. His creative juice allows
-            him to draw from these human emotions to give life to befitting
-            music to accompany one’s mood.
-          </p>
-        </div>
+        <h1 className='heading-primary'>IRhay</h1>
+        <p className='paragraph'>
+          With IRhay, every mood has a fitting song. His creative juice allows
+          him to draw from these human emotions to give life to befitting music
+          to accompany one’s mood.
+        </p>
       </div>
       <a
         target='_blank'

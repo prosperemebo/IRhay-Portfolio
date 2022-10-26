@@ -9,7 +9,10 @@ export default function useReadyImages() {
     let c = 0;
     let noOfImages = img.length;
 
-    if (noOfImages === 0) return doneLoading();
+    if (noOfImages === 0) {
+      setProgress(100);
+      return doneLoading();
+    }
 
     function imgLoaded() {
       c += 1;
