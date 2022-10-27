@@ -19,7 +19,6 @@ const routes = [
 
 function App() {
   const appCtx = useContext(AppContext);
-  const [ready, progress] = useReadyImages();
 
   useEffect(() => {
     let vh = window.innerHeight * 0.01;
@@ -34,7 +33,6 @@ function App() {
 
   return (
     <>
-      {appCtx.isLoadingComplete ? '' : <Loader progress={progress} />}
       <Routes>
         <Route exact path='/' element={<Home />} />
         <Route exact path='/gallery' element={<Gallery />} />
