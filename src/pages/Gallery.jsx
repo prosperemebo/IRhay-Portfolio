@@ -14,6 +14,8 @@ const Gallery = () => {
     if (ready) {
       appCtx.setPageStatus('ENTER');
     }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ready]);
 
   return (

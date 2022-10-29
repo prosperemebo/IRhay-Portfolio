@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import About from '../components/About';
 import Experience from '../components/Experience';
 import Header from '../components/Header';
@@ -18,6 +18,8 @@ const Home = ({ timeline }) => {
     if (ready) {
       appCtx.setPageStatus('ENTER');
     }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ready]);
 
   return (

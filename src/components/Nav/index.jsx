@@ -5,7 +5,6 @@ import { ReactComponent as HeadphonesIcon } from '../../assets/icons/headphones.
 import { ReactComponent as MediaIcon } from '../../assets/icons/vector.svg';
 import { ReactComponent as ImageIcon } from '../../assets/icons/image.svg';
 
-import { Link } from 'react-router-dom';
 import AppContext from '../../store/app-context';
 import { DelayLink } from '../DelayLink';
 
@@ -39,10 +38,10 @@ const Nav = () => {
         </button>
       </div>
       <div className={classes.cta}>
-        <button>
+        {/* <button>
           <MediaIcon />
           <span>Music</span>
-        </button>
+        </button> */}
 
         <DelayLink
           replace={true}

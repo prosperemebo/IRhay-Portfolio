@@ -64,7 +64,7 @@ const backgroundParallaxAnimation = () => {
     '-=3'
   );
 
-  const trigger = ScrollTrigger.create({
+  ScrollTrigger.create({
     animation: tl,
     trigger: `header`,
     start: 'top top',
