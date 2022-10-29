@@ -24,6 +24,10 @@ html {
   @media only screen and (max-width: $layout-breakpoint-xsmall) {
     font-size: 25vw;
   }
+
+  span {
+    font-size: inherit;
+  }
 }
 
 .heading-secondary {

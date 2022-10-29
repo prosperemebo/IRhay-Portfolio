@@ -78,9 +78,11 @@ const Header = () => {
   const appCtx = useContext(AppContext);
 
   useEffect(() => {
-    appCtx.isLoadingComplete && headerAnimation();
-    appCtx.isLoadingComplete && backgroundParallaxAnimation();
-  }, [appCtx.isLoadingComplete]);
+    appCtx.isLoadingComplete && appCtx.isPageReady && headerAnimation();
+    appCtx.isLoadingComplete &&
+      appCtx.isPageReady &&
+      backgroundParallaxAnimation();
+  }, [appCtx.isLoadingComplete, appCtx.isPageReady]);
 
   return (
     <header className={classes.header}>

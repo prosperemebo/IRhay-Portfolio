@@ -3,17 +3,14 @@
 
 .header {
   .body {
-    margin-top: 13rem;
-    padding: 0 5rem;
+    padding: 13rem 5rem 0;
 
     @include media('<=desktop') {
-      padding: 0 2rem;
-      margin-top: 8rem;
+      padding: 8rem 2rem 0;
     }
 
     @include media('<=tablet') {
-      padding: 0 1.5rem;
-      margin-top: 6rem;
+      padding: 6rem 1.5rem 0;
     }
 
     @include media('<=phone') {

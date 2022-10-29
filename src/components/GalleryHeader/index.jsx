@@ -20,6 +20,7 @@ import pic8 from '../../assets/images/pic-8.jpg';
 import pic9 from '../../assets/images/pic-9.jpg';
 import pic11 from '../../assets/images/pic-11.jpg';
 import pic12 from '../../assets/images/comp-2.jpg';
+import { DelayLink } from '../DelayLink';
 
 const pics = [
   pic0,
@@ -40,6 +41,7 @@ const Header = () => {
   const appCtx = useContext(AppContext);
 
   const [scrollPosition, setScrollPosition] = useState(0);
+
   const handleScroll = () => {
     const position = window.pageYOffset;
     setScrollPosition(position);
@@ -67,12 +69,20 @@ const Header = () => {
           </button>
         </div>
         <div className={navClasses.cta}>
-          <Link to={'/'}>
+          <DelayLink
+            replace={true}
+            to={'/'}
+            delay={1500}
+            onDelayStart={() => {
+              appCtx.setPageStatus('LEAVE');
+              appCtx.setIsPageReady(false);
+            }}
+          >
             <button>
               <CrossIcon />
               <span>Close</span>
             </button>
-          </Link>
+          </DelayLink>
         </div>
       </nav>
       <div className={classes.body}>

@@ -11,11 +11,11 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <AppProvider>
-        <ScrollToTop>
+      <ScrollToTop>
+        <AppProvider>
           <App />
-        </ScrollToTop>
-      </AppProvider>
+        </AppProvider>
+      </ScrollToTop>
     </BrowserRouter>
   </React.StrictMode>
 );

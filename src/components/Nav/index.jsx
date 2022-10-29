@@ -7,6 +7,7 @@ import { ReactComponent as ImageIcon } from '../../assets/icons/image.svg';
 
 import { Link } from 'react-router-dom';
 import AppContext from '../../store/app-context';
+import { DelayLink } from '../DelayLink';
 
 const Nav = () => {
   const appCtx = useContext(AppContext);
@@ -42,12 +43,21 @@ const Nav = () => {
           <MediaIcon />
           <span>Music</span>
         </button>
-        <Link to={'/gallery'}>
+
+        <DelayLink
+          replace={true}
+          to={'/gallery'}
+          delay={1500}
+          onDelayStart={() => {
+            appCtx.setPageStatus('LEAVE');
+            appCtx.setIsPageReady(false);
+          }}
+        >
           <button>
             <ImageIcon />
             <span>Gallery</span>
           </button>
-        </Link>
+        </DelayLink>
       </div>
     </nav>
   );

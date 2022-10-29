@@ -6,9 +6,13 @@ import music from '../assets/music/eom.mp3';
 
 const state = {
   isLoadingComplete: false,
+  isPageReady: false,
   audioPlaying: false,
+  pageStatus: null,
+  setPageStatus: () => {},
   audioToggle: () => {},
   setIsLoadingComplete: () => {},
+  setIsPageReady: () => {},
 };
 
 const appReducer = (state, action) => {
@@ -17,9 +21,22 @@ const appReducer = (state, action) => {
       audioPlaying: action.playing,
     });
   }
+
   if (action.type === 'SETISLOADINGCOMPLETE') {
     return Object.assign({}, state, {
       isLoadingComplete: action.state,
+    });
+  }
+
+  if (action.type === 'SETISPAGEREADY') {
+    return Object.assign({}, state, {
+      isPageReady: action.state,
+    });
+  }
+
+  if (action.type === 'SETPAGESTATUS') {
+    return Object.assign({}, state, {
+      pageStatus: action.state,
     });
   }
 
@@ -35,14 +52,24 @@ const AppProvider = ({ children }) => {
   const setIsLoadingComplete = (state) =>
     dispatchAppAction({ type: 'SETISLOADINGCOMPLETE', state });
 
+  const setIsPageReady = (state) =>
+    dispatchAppAction({ type: 'SETISPAGEREADY', state });
+
+  const setPageStatus = (state) =>
+    dispatchAppAction({ type: 'SETPAGESTATUS', state });
+
   const [playing, toggle] = useAudio(music);
 
   const currentState = {
     isLoadingComplete: appState.isLoadingComplete,
+    isPageReady: appState.isPageReady,
     audioPlaying: playing,
     audioToggle: toggle,
+    pageStatus: appState.pageStatus,
     setAudioPlaying,
     setIsLoadingComplete,
+    setIsPageReady,
+    setPageStatus,
   };
 
   return (
