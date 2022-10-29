@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import classes from './nav.module.scss';
 
 import { ReactComponent as HeadphonesIcon } from '../../assets/icons/headphones.svg';
-import { ReactComponent as MediaIcon } from '../../assets/icons/vector.svg';
+// import { ReactComponent as MediaIcon } from '../../assets/icons/vector.svg';
 import { ReactComponent as ImageIcon } from '../../assets/icons/image.svg';
 
 import AppContext from '../../store/app-context';
