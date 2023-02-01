@@ -15,18 +15,6 @@ import AppContext from '../../store/app-context';
 const headerAnimation = () => {
   const tl = gsap.timeline();
 
-  // .set(`#compositionImg img`, {
-  //   scale: 1.3,
-  //   opacity: 0,
-  // })
-  //   .set('#textbox', {
-  //     y: 150,
-  //     opacity: 0,
-  //   })
-  //   .set('#musiclink', {
-  //     scale: 0,
-  //   })
-
   tl.to(`.${classes.compositionImg} img`, {
     scale: 1,
     opacity: 1,
