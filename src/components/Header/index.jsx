@@ -94,7 +94,7 @@ const Header = () => {
       </div>
       <a
         target='_blank'
-        href='https://onerpm.link/260169542620'
+        href='https://onerpm.link/wings'
         className={classes.musicLink}
         rel='noreferrer'
         id='musiclink'
