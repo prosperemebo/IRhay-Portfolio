@@ -100,7 +100,9 @@ const Header = () => {
         id='musiclink'
       >
         <div className={classes.content}>
-          <img src={EOMCover} alt='Easy on Me Cover' />
+          <figure>
+            <img src={EOMCover} alt='Surface - The EP Cover' />
+          </figure>
           <span className={classes.arrow}>
             <UpArrow />
           </span>

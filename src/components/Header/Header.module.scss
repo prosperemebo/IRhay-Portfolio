@@ -97,8 +97,12 @@
     &:focus {
       outline: none;
 
-      .content img {
-        transform: scale(1);
+      .content figure {
+        transform: scale(2);
+
+        &::after {
+          background-color: rgba(0, 0, 0, 0.4);
+        }
       }
     }
 
@@ -107,7 +111,27 @@
       justify-content: center;
       align-items: center;
 
-      img,
+      figure {
+        width: 15rem;
+        height: 15rem;
+        transform: scale(1);
+        border-radius: 50%;
+        transition: transform ease-in-out 0.2s;
+        overflow: hidden;
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          height: 100%;
+          width: 100%;
+          transition: background-color ease-in-out 200ms;
+        }
+      }
+
+      figure,
       span {
         position: absolute;
       }
@@ -132,9 +156,8 @@
       }
 
       img {
-        border-radius: 50%;
-        transform: scale(0.5);
-        transition: transform ease-in-out 0.2s;
+        height: 100%;
+        width: 100%;
       }
     }
   }
