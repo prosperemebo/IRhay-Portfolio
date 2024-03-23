@@ -48,10 +48,10 @@ $move-final: calc(-50%);
 
   .experience {
     figure {
-      height: 70rem;
+      height: 90rem;
 
       @include media('<=tablet') {
-        height: 40rem;
+        height: 60rem;
       }
 
       img {

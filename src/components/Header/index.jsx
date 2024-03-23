@@ -75,13 +75,13 @@ const Header = () => {
   return (
     <header className={classes.header}>
       <div className={classes.background}>
-        <img id='rock' src={hero} alt='' />
-        <img id='rock-2' src={hero2} alt='' />
-        <img id='rock-1' src={hero1} alt='' />
+        <img id='rock' src={hero} alt='' data-important />
+        <img id='rock-2' src={hero2} alt='' data-important />
+        <img id='rock-1' src={hero1} alt='' data-important />
       </div>
       <div className={classes.compositionImg} id='compositionImg'>
         <div className={classes.img}>
-          <img src={compositionImage} alt='IRhay' />
+          <img src={compositionImage} alt='IRhay' data-important />
         </div>
       </div>
       <div className={classes.textbox}>
@@ -101,7 +101,7 @@ const Header = () => {
       >
         <div className={classes.content}>
           <figure>
-            <img src={EOMCover} alt='Surface - The EP Cover' />
+            <img src={EOMCover} alt='Surface - The EP Cover' data-important />
           </figure>
           <span className={classes.arrow}>
             <UpArrow />

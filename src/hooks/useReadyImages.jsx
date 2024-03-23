@@ -5,9 +5,17 @@ export default function useReadyImages() {
   const [progress, setProgress] = useState(0);
 
   const loader = useCallback(() => {
-    const img = document.images;
-    let c = 0;
-    let noOfImages = img.length;
+    // const images = document.images;
+    const elementsWithDataImportant =
+      document.querySelectorAll('[data-important]');
+    const images = Array.from(elementsWithDataImportant).filter(
+      function (element) {
+        return element.tagName.toLowerCase() === 'img';
+      }
+    );
+
+    let count = 0;
+    let noOfImages = images.length;
 
     if (noOfImages === 0) {
       setProgress(100);
@@ -15,23 +23,23 @@ export default function useReadyImages() {
     }
 
     function imgLoaded() {
-      c += 1;
-      let perc = ((100 / noOfImages) * c) << 0;
+      count += 1;
+      let perc = ((100 / noOfImages) * count) << 0;
 
       setProgress(perc);
 
-      if (c === noOfImages) return doneLoading();
+      if (count === noOfImages) return doneLoading();
     }
 
     function doneLoading() {
       setReady(true);
     }
 
-    for (var i = 0; i < noOfImages; i++) {
-      var tImg = new Image();
+    for (let i = 0; i < noOfImages; i++) {
+      let tImg = new Image();
       tImg.onload = imgLoaded;
       tImg.onerror = imgLoaded;
-      tImg.src = img[i].src;
+      tImg.src = images[i].src;
     }
   }, []);
 

@@ -1,14 +1,14 @@
 import React from 'react';
 import classes from './About.module.scss';
 
-import compositionImg from '../../assets/images/comp-4.jpg';
+import compositionImg from '../../assets/images/comp-4.webp';
 
 const About = () => {
   return (
     <section className={classes.about}>
       <div className={`container ${classes.content}`}>
         <div className={classes.img}>
-          <img src={compositionImg} alt='Shot from Easy on Me' />
+          <img src={compositionImg} alt='Shot from Easy on Me' data-important />
         </div>
         <div className={classes.info}>
           <h2 className='heading-secondary'>
