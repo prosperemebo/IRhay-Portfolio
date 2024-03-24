@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className={classes.footer}>
       <p className='paragraph'>
-        Copyright &copy; 2022 TaradomeMusik. All rights reserved.
+        Copyright &copy; 2024 TaradomeMusik. All rights reserved.
       </p>
     </footer>
   );
