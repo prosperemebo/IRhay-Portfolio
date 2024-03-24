@@ -47,27 +47,19 @@
   .cta {
     display: flex;
     align-items: center;
+    gap: 2rem;
 
     a {
       text-decoration: none;
     }
 
-    button {
-      &:not(:last-child) {
-        margin-right: 3rem;
-
-        @include media('<=tablet') {
-          margin-right: 1.5rem;
-        }
-
-        @include media('<=phone') {
-          margin-right: 0rem;
-        }
-      }
+    .pulse {
+      animation: pulse 2s infinite;
     }
   }
 
-  button {
+  button,
+  a {
     display: flex;
     align-items: center;
     background-color: transparent;
@@ -102,7 +94,7 @@
     }
 
     span {
-      font-weight: 700;
+      font-weight: 600;
       font-family: inherit;
       font-size: 2rem;
 
@@ -114,5 +106,19 @@
         font-size: 1.3rem;
       }
     }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+  }
+
+  70% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(0.95);
   }
 }
