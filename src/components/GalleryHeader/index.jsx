@@ -90,7 +90,11 @@ const Header = () => {
       <div className={classes.gallery + ' container'}>
         {pics.map((pic, i) => (
           <figure key={i}>
-            <img src={pic} alt={`IRhay ${i}`} />
+            {i > 4 ? (
+              <img src={pic} alt={`IRhay ${i}`} />
+            ) : (
+              <img src={pic} alt={`IRhay ${i}`} data-important />
+            )}
           </figure>
         ))}
       </div>

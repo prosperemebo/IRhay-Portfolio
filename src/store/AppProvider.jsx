@@ -2,7 +2,7 @@ import React, { useReducer } from 'react';
 import { useAudio } from '../hooks/useAudio';
 import AppContext from './app-context';
 
-import music from '../assets/music/eom.mp3';
+import music from '../assets/music/feature-track.mp3';
 
 const state = {
   isLoadingComplete: false,

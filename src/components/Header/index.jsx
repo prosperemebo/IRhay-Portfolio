@@ -1,16 +1,18 @@
 import React, { useContext, useEffect } from 'react';
-import classes from './Header.module.scss';
+import gsap from 'gsap/gsap-core';
+import AppContext from '../../store/app-context';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 
 import { ReactComponent as EOMText } from '../../assets/icons/circular-text.svg';
 import { ReactComponent as UpArrow } from '../../assets/icons/arrow.svg';
-import EOMCover from '../../assets/images/music-cover.jpg';
+
 import hero from '../../assets/images/hero.jpg';
 import hero1 from '../../assets/images/hero-1.png';
 import hero2 from '../../assets/images/hero-3.png';
+import trackCover from '../../assets/images/music-cover.jpg';
 import compositionImage from '../../assets/images/comp-1.jpg';
-import gsap from 'gsap/gsap-core';
-import ScrollTrigger from 'gsap/ScrollTrigger';
-import AppContext from '../../store/app-context';
+
+import classes from './Header.module.scss';
 
 const headerAnimation = () => {
   const tl = gsap.timeline();
@@ -94,14 +96,14 @@ const Header = () => {
       </div>
       <a
         target='_blank'
-        href='https://onerpm.link/wings'
+        href='https://onerpm.link/143394760138'
         className={classes.musicLink}
         rel='noreferrer'
         id='musiclink'
       >
         <div className={classes.content}>
           <figure>
-            <img src={EOMCover} alt='Surface - The EP Cover' data-important />
+            <img src={trackCover} alt='Surface - The EP Cover' data-important />
           </figure>
           <span className={classes.arrow}>
             <UpArrow />
