@@ -32,7 +32,10 @@ const Nav = () => {
       }`}
     >
       <div className={classes.player}>
-        <button onClick={appCtx.audioToggle}>
+        <button
+          onClick={appCtx.audioToggle}
+          className={appCtx.audioPlaying ? classes.pulseFast : ''}
+        >
           <HeadphonesIcon />
           <span> Sound: {appCtx.audioPlaying ? 'On' : 'Off'}</span>
         </button>
