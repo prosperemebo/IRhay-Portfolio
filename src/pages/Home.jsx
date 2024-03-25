@@ -8,6 +8,7 @@ import useReadyImages from '../hooks/useReadyImages';
 import AppContext from '../store/app-context';
 import Loader from '../components/Loader';
 import VideoPreview from '../components/VideoPreview';
+import Videos from '../components/Videos';
 
 const Home = ({ timeline }) => {
   const [ready, progress] = useReadyImages();
@@ -28,7 +29,7 @@ const Home = ({ timeline }) => {
       {appCtx.isLoadingComplete ? '' : <Loader progress={progress} />}
       <Nav />
       <Header />
-      <VideoPreview />
+      <Videos />
       <About />
       <Experience />
       <Hallway />

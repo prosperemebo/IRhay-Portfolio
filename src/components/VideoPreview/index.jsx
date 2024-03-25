@@ -6,9 +6,7 @@ import { ReactComponent as CloseIC } from '../../assets/icons/cross.svg';
 
 import classes from './style.module.scss';
 
-import thumbnail from '../../assets/images/video-thumbnail.jpeg';
-
-const VideoPreview = () => {
+const VideoPreview = ({ title, url, thumbnail }) => {
   const [popupOpen, setPopupOpen] = useState(false);
 
   return (
@@ -40,8 +38,8 @@ const VideoPreview = () => {
               <iframe
                 width='1904'
                 height='920'
-                src='https://www.youtube.com/embed/Ch5yM42IwPM?&amp;color=white&amp;modestbranding=1&amp;playsinline=1&amp;rel=0&amp;autoplay=1'
-                title='IRhay - Easy On Me Video.'
+                src={url}
+                title={title}
                 frameBorder='0'
                 allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
                 allowFullScreen
@@ -52,13 +50,13 @@ const VideoPreview = () => {
         )}
       </AnimatePresence>
       <div className={classes.container}>
-        <h3 className='heading-secondary'>Easy on Me - Official Video</h3>
+        <h3 className='heading-secondary'>{title}</h3>
         <div
           className={classes.video}
           style={{ backgroundImage: `url(${thumbnail})` }}
         >
           <figure>
-            <img src={thumbnail} alt='Easy on Me Thumbnail' />
+            <img src={thumbnail} alt={`${title} Thumbnail`} />
           </figure>
           <button onClick={() => setPopupOpen(true)}>
             <PlayIC />
