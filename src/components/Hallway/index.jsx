@@ -92,11 +92,11 @@ const Hallway = () => {
           </ul>
         </div>
         <div className={classes.hallway}>
-          <figure className={classes.sm}>
-            <img src={img1} alt='IRhay' />
-          </figure>
           <figure className={classes.lg}>
             <img src={img2} alt='IRhay' />
+          </figure>
+          <figure className={classes.sm}>
+            <img src={img1} alt='IRhay' />
           </figure>
           <figure className={classes.md}>
             <img src={img3} alt='IRhay' />
