@@ -63,12 +63,12 @@
       border-top-left-radius: 1400px;
       border-top-right-radius: 1400px;
       overflow: hidden;
-      object-position: top;
-
+      
       img {
         height: 100%;
         width: 100%;
         object-fit: cover;
+        object-position: top;
         transform: scale(1.3);
         opacity: 0;
       }
