@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Footer from './components/Footer';
 import gsap from 'gsap';
 import './sass/main.scss';
@@ -6,8 +6,10 @@ import './sass/main.scss';
 // Pages
 import Home from './pages/Home';
 import Gallery from './pages/Gallery';
-import { Route, Routes } from 'react-router-dom';
 import AnimationLayout from './components/AnimationLayout';
+
+import { Route, Routes } from 'react-router-dom';
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   useEffect(() => {
@@ -30,6 +32,7 @@ function App() {
         </Route>
       </Routes>
       <Footer />
+      <Analytics />
     </>
   );
 }
