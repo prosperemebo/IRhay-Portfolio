@@ -46,7 +46,7 @@ const Nav = () => {
           <MediaIcon />
           <span>Music</span>
         </button> */}
-        <a href='https://merch.irhaymusic.com' target='_blank' rel='noreferrer'>
+        <a href='https://merch.irhaymusic.com/products-list' target='_blank' rel='noreferrer'>
           <MerchIcon />
           <span>Merch</span>
         </a>
